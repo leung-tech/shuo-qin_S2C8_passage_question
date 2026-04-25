@@ -79,6 +79,8 @@
         /* 選單與其他 */
         #nav-menu { transition: transform 0.3s ease-in-out; transform: translateX(100%); }
         #nav-menu.open { transform: translateX(0); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .tree-line-v { width: 4px; height: 20px; background-color: #CBD5E0; margin: 0 auto; }
         .tts-btn-icon { color: #60A5FA; transition: color 0.2s; cursor: pointer; margin-right: 0.5rem; font-size: 1.1em; flex-shrink: 0; }
         .tts-btn-icon:hover { color: #2563EB; }
@@ -144,32 +146,31 @@
             </h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <!-- 記敘文 -->
                 <div class="bg-orange-50 border-2 border-orange-300 rounded-2xl p-5 shadow-sm">
                     <h3 class="text-xl font-bold text-orange-700 mb-3 flex items-center border-b-2 border-orange-200 pb-2">
-                        <button onclick="speakText('記敘文。講故事，目的是感動讀者。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                        <button onclick="speakText('記敘文。講故事，目的是感動讀者，分享經歷。重點是時間、地點、人物。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
                         <span class="text-2xl mr-2">🎬</span> 記敘文 (講故事)
                     </h3>
                     <ul class="space-y-2 text-orange-900 font-bold">
                         <li>❤ 目的：感動讀者，分享經歷</li>
                         <li>🕒 成分：時間、地點、人物</li>
+                        <li class="text-sm font-normal text-orange-700">例子：兩個和尚去旅行的過程。</li>
                     </ul>
                 </div>
-                <!-- 議論文 -->
                 <div class="bg-blue-50 border-2 border-blue-400 rounded-2xl p-5 shadow-md relative overflow-hidden">
                     <div class="absolute -right-4 -top-4 text-blue-200 text-6xl opacity-30"><i class="fas fa-gavel"></i></div>
                     <h3 class="text-xl font-bold text-blue-800 mb-3 flex items-center border-b-2 border-blue-300 pb-2 relative z-10">
-                        <button onclick="speakText('議論文。講道理，目的是說服讀者。本課就是議論文。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                        <button onclick="speakText('議論文。講道理，目的是說服讀者，證明觀點。本課就是議論文。重點是論點、論據、論證。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
                         <span class="text-2xl mr-2">⚖</span> 議論文 (本課重點)
                     </h3>
                     <ul class="space-y-2 text-blue-900 font-bold relative z-10">
                         <li>💭 目的：說服讀者，證明觀點</li>
                         <li>📏 成分：論點、論據、論證</li>
+                        <li class="text-sm font-normal text-blue-700">例子：藉和尚的故事，證明有志者事竟成。</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- MCQ 挑戰 (2星) -->
             <div class="bg-gray-100 p-5 rounded-2xl border-2 border-gray-300">
                 <h3 class="text-lg font-bold mb-3 flex items-center">
                     <button onclick="speakText('選擇題挑戰，每題一顆星！')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>⭐ 知識驗收 (共 2 星)
@@ -177,16 +178,16 @@
                 
                 <div class="bg-white p-4 rounded-xl shadow-sm mb-4">
                     <p class="font-bold mb-2 flex items-start">
-                        <button onclick="speakText('第一題：《說勤》是一篇議論文，它的主要目的是什麼？')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
-                        Q1. 《說勤》是一篇議論文，它的「主要目的」是什麼？
+                        <button onclick="speakText('第一題：《說勤》是一篇議論文，它的主要核心目的是什麼？')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                        Q1. 《說勤》是一篇議論文，它的「主要核心目的」是什麼？
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('A. 分享經歷感動讀者')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="speakText('A. 分享作者的個人經歷，感動讀者。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
                             <button onclick="checkMCQStar(this, false, 'l1q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">A. 分享經歷感動讀者 😢</button>
                         </div>
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('B. 說服讀者認同觀點')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="speakText('B. 證明觀點，說服讀者認同。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
                             <button onclick="checkMCQStar(this, true, 'l1q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">B. 說服讀者認同觀點 🤔</button>
                         </div>
                     </div>
@@ -195,17 +196,17 @@
 
                 <div class="bg-white p-4 rounded-xl shadow-sm">
                     <p class="font-bold mb-2 flex items-start">
-                        <button onclick="speakText('第二題：議論文中，用來證明看法的材料，例如事實或名言，我們稱為什麼？')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
-                        Q2. 議論文中，用來證明看法的材料 (例如事實或名言)，我們稱為什麼？
+                        <button onclick="speakText('第二題：在口訣中，我們說論據是什麼？論證又是什麼？')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                        Q2. 在口訣中，我們說「論據」是什麼？「論證」又是什麼？
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('A. 論點')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
-                            <button onclick="checkMCQStar(this, false, 'l1q2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">A. 論點 📢</button>
+                            <button onclick="speakText('A. 論據是目標，論證是材料。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="checkMCQStar(this, false, 'l1q2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">A. 論據=目標；論證=材料 ❌</button>
                         </div>
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('B. 論據')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
-                            <button onclick="checkMCQStar(this, true, 'l1q2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">B. 論據 📸</button>
+                            <button onclick="speakText('B. 論據是子彈，論證是槍法。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="checkMCQStar(this, true, 'l1q2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-3 rounded-lg font-bold text-gray-700 text-left">B. 論據=子彈；論證=槍法 🔫🎯</button>
                         </div>
                     </div>
                     <p id="feedback-l1q2" class="mt-2 font-bold hidden text-sm"></p>
@@ -239,7 +240,7 @@
                     <div class="text-4xl mr-4">👑</div>
                     <div>
                         <h4 class="text-xl font-bold text-red-800 flex items-center">
-                            <button onclick="speakText('第一：論點。代表國王或目標。是作者的看法和主張。')" class="mr-2 text-red-400"><i class="fas fa-volume-up"></i></button> 1. 論點 (國王 / 看法)
+                            <button onclick="speakText('第一：論點。代表國王或目標。是作者的看法和主張。必須明確。')" class="mr-2 text-red-400"><i class="fas fa-volume-up"></i></button> 1. 論點 (國王 / 看法)
                         </h4>
                         <p class="text-red-600 font-bold text-sm">作者的「主張、看法」。必須明確！</p>
                     </div>
@@ -248,23 +249,22 @@
                     <div class="text-4xl mr-4">📸</div>
                     <div>
                         <h4 class="text-xl font-bold text-blue-800 flex items-center">
-                            <button onclick="speakText('第二：論據。代表材料和子彈。用來證明論點的證據。')" class="mr-2 text-blue-400"><i class="fas fa-volume-up"></i></button> 2. 論據 (相機 / 材料)
+                            <button onclick="speakText('第二：論據。代表相機或材料。用來證明論點的證據。分為事實論據和道理論據。')" class="mr-2 text-blue-400"><i class="fas fa-volume-up"></i></button> 2. 論據 (相機 / 材料)
                         </h4>
                         <p class="text-blue-600 font-bold text-sm">證明論點的材料 (事實 或 道理/名言)。</p>
                     </div>
                 </div>
                 <div class="border-2 border-green-200 bg-green-50 p-4 rounded-xl shadow-sm flex items-center">
-                    <div class="text-4xl mr-4">🍳</div>
+                    <div class="text-4xl mr-4">🎯</div>
                     <div>
                         <h4 class="text-xl font-bold text-green-800 flex items-center">
-                            <button onclick="speakText('第三：論證。代表過程與槍法。運用材料來證明論點的過程。')" class="mr-2 text-green-400"><i class="fas fa-volume-up"></i></button> 3. 論證 (過程 / 槍法)
+                            <button onclick="speakText('第三：論證。代表過程與槍法。運用材料來證明論點的過程。例如舉例論證、對比論證。')" class="mr-2 text-green-400"><i class="fas fa-volume-up"></i></button> 3. 論證 (過程 / 槍法)
                         </h4>
                         <p class="text-green-600 font-bold text-sm">運用材料的方法 (例如：舉例論證、對比論證)。</p>
                     </div>
                 </div>
             </div>
 
-            <!-- 互動填充 (3星) -->
             <div class="bg-gray-100 p-5 rounded-2xl border-2 border-gray-300">
                 <h3 class="text-lg font-bold mb-3 flex items-center">
                     <button onclick="speakText('填充遊戲：學生應否穿校服。點擊藍色詞語放入空格。每放對一個得一顆星。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>⭐ 互動填充：學生應否穿校服？ (共 3 星)
@@ -348,21 +348,30 @@
         <!-- L5: 課文聽讀 (1星) -->
         <section id="level-5" class="bg-white rounded-3xl p-6 shadow-sm border-t-8 border-teal-500 scroll-mt-24">
             <h2 class="text-2xl sm:text-3xl font-bold mb-4 flex items-center text-teal-700">
-                <button onclick="speakText('第五關：課文聽讀。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                <button onclick="speakText('第五關：課文互動聽讀。專注模式。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
                 <i class="fas fa-book-open mr-2"></i> L5. 課文聽讀
             </h2>
-            <div class="space-y-4">
-                <div class="bg-white p-5 rounded-2xl border-l-8 border-teal-400 shadow-sm text-lg relative">
-                    <button onclick="speakText('中國有句俗話，叫做一勤天下無難事。這就是說，學業方面的精深造詣來源於勤奮好學。')" class="absolute right-4 top-4 text-teal-400 hover:text-teal-600 text-2xl"><i class="fas fa-volume-up"></i></button>
-                    <p class="pr-10">中國有句俗話，叫做「一勤天下無難事」。這就是說，學業方面的精深<span class="font-bold text-teal-600 border-b border-teal-300">造詣</span><span class="color-point">來源於勤奮好學。</span></p>
+            <p class="text-sm font-bold text-teal-600 mb-4 bg-teal-50 p-2 rounded inline-block"><i class="fas fa-mouse-pointer"></i> 滑鼠移到段落上會自動變亮，點擊喇叭聽語音。</p>
+            
+            <div class="focus-container space-y-4">
+                <div class="focus-item bg-white p-5 rounded-2xl border-l-8 border-red-400 shadow-sm text-lg relative">
+                    <button onclick="speakText('第一段：引論。中國有句俗話，叫做一勤天下無難事。唐朝韓愈也說過，業精於勤。這就是說，學業方面的精深造詣來源於勤奮好學。這也是文章的中心論點。')" class="absolute right-4 top-4 text-red-400 hover:text-red-600 text-2xl"><i class="fas fa-volume-up"></i></button>
+                    <p class="pr-10"><span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded font-bold mr-2">引論</span> 中國有句俗話，叫做「一勤天下無難事」。這就是說，<span class="color-point">學業方面的精深造詣來源於勤奮好學。(中心論點)</span></p>
                 </div>
-                <div class="bg-white p-5 rounded-2xl border-l-8 border-blue-400 shadow-sm text-lg relative">
-                    <button onclick="speakText('勤出成果。馬克思寫資本論，艱苦奮鬥了 40 年。')" class="absolute right-4 top-4 text-blue-400 hover:text-blue-600 text-2xl"><i class="fas fa-volume-up"></i></button>
-                    <p class="pr-10"><span class="color-point">勤出成果。</span>馬克思寫《資本論》，艱苦<span class="font-bold text-blue-600 border-b border-blue-300">奮鬥</span>了 40 年。司馬遷寫《史記》。</p>
+                
+                <div class="focus-item bg-white p-5 rounded-2xl border-l-8 border-blue-400 shadow-sm text-lg relative">
+                    <button onclick="speakText('第二段：勤出成果。馬克思寫資本論，艱苦奮鬥了 40 年。司馬遷從20歲開始漫遊，為史記奠定基礎。這是事實論據。')" class="absolute right-4 top-4 text-blue-400 hover:text-blue-600 text-2xl"><i class="fas fa-volume-up"></i></button>
+                    <p class="pr-10"><span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded font-bold mr-2">本論一</span> <span class="color-point">勤出成果。</span>馬克思寫《資本論》，艱苦奮鬥了 40 年。司馬遷從20歲開始漫遊，為《史記》奠定基礎。<span class="color-evidence">(事實論據)</span></p>
                 </div>
-                <div class="bg-white p-5 rounded-2xl border-l-8 border-green-400 shadow-sm text-lg relative">
-                    <button onclick="speakText('懶惰者永遠沒有建樹。高爾基說過：天才出於勤奮。')" class="absolute right-4 top-4 text-green-400 hover:text-green-600 text-2xl"><i class="fas fa-volume-up"></i></button>
-                    <p class="pr-10"><span class="color-reasoning">懶惰者永遠沒有建樹。(對比)</span> 高爾基說過：「天才出於勤奮。」<span class="color-evidence">(道理)</span></p>
+
+                <div class="focus-item bg-white p-5 rounded-2xl border-l-8 border-blue-400 shadow-sm text-lg relative">
+                    <button onclick="speakText('第三段：勤出智慧。古希臘德摩斯梯尼天生口吃，每天口含石子面對大海朗誦，成為演說家。宋代陳正之反應遲鈍，別人讀一遍他讀三四遍，終成博學之士。這是事實論據。')" class="absolute right-4 top-4 text-blue-400 hover:text-blue-600 text-2xl"><i class="fas fa-volume-up"></i></button>
+                    <p class="pr-10"><span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded font-bold mr-2">本論二</span> <span class="color-point">勤出智慧。</span>德摩斯梯尼口吃，每天含石子面對大海朗誦，成為演說家。陳正之反應遲鈍，別人讀一遍他讀三四遍，成博學之士。<span class="color-evidence">(事實論據)</span></p>
+                </div>
+
+                <div class="focus-item bg-white p-5 rounded-2xl border-l-8 border-green-400 shadow-sm text-lg relative">
+                    <button onclick="speakText('第四段：結論。懶惰者永遠沒有建樹，永遠不會變聰明。高爾基說過：天才出於勤奮。只有勤，才能取得事業上的成就。')" class="absolute right-4 top-4 text-green-400 hover:text-green-600 text-2xl"><i class="fas fa-volume-up"></i></button>
+                    <p class="pr-10"><span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded font-bold mr-2">結論</span> <span class="color-reasoning">懶惰者永遠沒有建樹。(對比論證)</span> 高爾基說過：「天才出於勤奮。」<span class="color-evidence">(道理論據)</span> 只有勤，才能取得事業上的成就。</p>
                 </div>
             </div>
             <div class="text-center mt-6">
@@ -373,21 +382,10 @@
         <!-- L6: 課文拆解與問答 (3星) -->
         <section id="level-6" class="bg-white rounded-3xl p-6 shadow-sm border-t-8 border-cyan-500 scroll-mt-24">
             <h2 class="text-2xl sm:text-3xl font-bold mb-4 flex items-center text-cyan-700">
-                <button onclick="speakText('第六關：課文拆解與問答。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                <button onclick="speakText('第六關：課文問答與修辭神探。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
                 <i class="fas fa-search mr-2"></i> L6. 課文拆解與問答
             </h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div class="bg-blue-50 border-2 border-blue-200 p-4 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg text-blue-800 border-b border-blue-200 pb-1 mb-2">🏅 勤出成果 (事實)</h3>
-                    <p class="text-sm text-gray-700">1. 📸 司馬遷 漫遊寫史記<br>2. 📸 馬克思 40年寫資本論</p>
-                </div>
-                <div class="bg-green-50 border-2 border-green-200 p-4 rounded-xl shadow-sm">
-                    <h3 class="font-bold text-lg text-green-800 border-b border-green-200 pb-1 mb-2">💡 勤出智慧 (事實)</h3>
-                    <p class="text-sm text-gray-700">1. 📸 德摩斯梯尼 克服口吃<br>2. 📸 陳正之 克服遲鈍</p>
-                </div>
-            </div>
-
             <div class="bg-gray-100 p-5 rounded-2xl border-2 border-gray-300 space-y-4">
                 <h3 class="text-lg font-bold mb-2 flex items-center">
                     <button onclick="speakText('選擇題挑戰，每題一顆星！')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>⭐ 知識驗收 (共 3 星)
@@ -395,17 +393,17 @@
 
                 <div class="bg-white p-4 rounded-xl shadow-sm">
                     <p class="font-bold mb-2 text-sm sm:text-base flex items-start">
-                        <button onclick="speakText('第一題：作者就以上論據，得出甚麼結論？')" class="tts-btn-icon text-sm"><i class="fas fa-volume-up"></i></button>
+                        <button onclick="speakText('第一題：透過德摩斯梯尼和陳正之的例子，作者得出甚麼結論？')" class="tts-btn-icon text-sm"><i class="fas fa-volume-up"></i></button>
                         Q1. 透過德摩斯梯尼和陳正之的例子，作者得出甚麼結論？
                     </p>
                     <div class="grid grid-cols-1 gap-2">
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('A. 天資差的人只要勤奮，同樣能變聰明。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
-                            <button onclick="checkMCQStar(this, true, 'l6q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm text-left">A. 天資差的人只要勤奮，同樣能變聰明。</button>
+                            <button onclick="speakText('A. 天資差的人只要有勤奮好學的精神，同樣能變聰明。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="checkMCQStar(this, true, 'l6q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm text-left">A. 天資差的人只要勤奮，同樣能變聰明。 ✅</button>
                         </div>
                         <div class="flex items-stretch gap-2">
-                            <button onclick="speakText('B. 只有天才才能成功。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
-                            <button onclick="checkMCQStar(this, false, 'l6q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm text-left">B. 只有天才才能成功。</button>
+                            <button onclick="speakText('B. 只有天生的天才，才能在歷史上留下名字。')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                            <button onclick="checkMCQStar(this, false, 'l6q1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm text-left">B. 只有天生的天才，才能在歷史上留下名字。 ❌</button>
                         </div>
                     </div>
                     <p id="feedback-l6q1" class="mt-2 font-bold hidden text-sm"></p>
@@ -413,8 +411,8 @@
 
                 <div class="bg-white p-4 rounded-xl shadow-sm">
                     <p class="font-bold mb-2 text-sm sm:text-base flex items-start">
-                        <button onclick="speakText('第二題：本文首尾段引用了一勤天下無難事，是運用了什麼論證方法？')" class="tts-btn-icon text-sm"><i class="fas fa-volume-up"></i></button>
-                        Q2. 本文首尾段引用了「一勤天下無難事」、「天才出於勤奮」，這叫什麼論證方法？
+                        <button onclick="speakText('第二題：本文首尾段引用了一勤天下無難事，是運用了什麼論證方法？有什麼好處？')" class="tts-btn-icon text-sm"><i class="fas fa-volume-up"></i></button>
+                        Q2. 本文首尾段引用了「一勤天下無難事」、「天才出於勤奮」，這叫什麼論證方法？有什麼好處？
                     </p>
                     <div class="grid grid-cols-1 gap-2">
                         <div class="flex items-stretch gap-2">
@@ -453,11 +451,11 @@
             </div>
         </section>
 
-        <!-- L7: 諺語與句子小火車 (7星) -->
+        <!-- L7: 諺語遊樂場 (7星) -->
         <section id="level-7" class="bg-white rounded-3xl p-6 shadow-sm border-t-8 border-purple-500 scroll-mt-24">
             <h2 class="text-2xl sm:text-3xl font-bold mb-4 flex items-center text-purple-600">
-                <button onclick="speakText('第七關：語文運用。諺語遊樂場與句子小火車。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
-                <i class="fas fa-dragon mr-2"></i> L7. 諺語與句子
+                <button onclick="speakText('第七關：語文運用。諺語遊樂場。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                <i class="fas fa-dragon mr-2"></i> L7. 諺語遊樂場
             </h2>
             
             <!-- 連連看 (4星) -->
@@ -480,35 +478,60 @@
                 <div id="match-feedback" class="text-center font-bold text-green-600 mt-3 h-6 text-sm"></div>
             </div>
 
-            <!-- 句子小火車 (3星) -->
+            <!-- 情境選擇 (3星) -->
             <div class="bg-gray-100 p-5 rounded-2xl border-2 border-gray-300">
-                <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><button onclick="speakText('遊戲B：句子小火車。找出有問題的句子。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>⭐ 遊戲B: 辨識病症 (共 3 星)</h3>
-                <p class="font-bold text-sm text-blue-800 mb-4 bg-blue-50 p-2 rounded border border-blue-200">提示：完整的句子要有「主語(誰) + 謂語(動作) + 賓語(對象)」。少了就是成分殘缺！</p>
+                <h3 class="text-lg font-bold text-gray-800 mb-3 flex items-center"><button onclick="speakText('遊戲B：成語神探。找出最適合的情境。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>⭐ 遊戲B: 成語神探 (共 3 星)</h3>
                 
                 <div class="space-y-3">
-                    <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-red-400">
-                        <p class="font-bold text-sm mb-2 flex items-start"><button onclick="speakText('昨晚，我們在客廳裡津津有味地觀賞。這句有什麼問題？')" class="tts-btn-icon text-xs"><i class="fas fa-volume-up"></i></button>1. 「昨晚，我們在客廳裡津津有味地觀賞。」</p>
-                        <div class="flex gap-2">
-                            <button onclick="checkMCQStar(this, true, 't1')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">❌ 缺賓語 (觀賞什麼?)</button>
-                            <button onclick="checkMCQStar(this, false, 't1')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">⭕ 健康句子</button>
+                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <p class="font-bold mb-2 text-sm sm:text-base flex items-start">
+                            <button onclick="speakText('Q1. 小美因多管閒事批評同學，結果惹上麻煩。')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button> Q1. 小美因多管閒事批評同學，結果惹上麻煩。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('A. 塞翁失馬')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, false, 's1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">A. 塞翁失馬</button>
+                            </div>
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('B. 是非只為多開口')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, true, 's1')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">B. 是非只為多開口</button>
+                            </div>
                         </div>
-                        <p id="feedback-t1" class="hidden mt-1 text-xs font-bold"></p>
+                        <p id="feedback-s1" class="mt-2 font-bold hidden text-sm"></p>
                     </div>
-                    <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-red-400">
-                        <p class="font-bold text-sm mb-2 flex items-start"><button onclick="speakText('大掃除時，我拿著掃把在課室裡擦地板。這句有什麼問題？')" class="tts-btn-icon text-xs"><i class="fas fa-volume-up"></i></button>2. 「大掃除時，我拿著掃把在課室裡擦地板。」</p>
-                        <div class="flex gap-2">
-                            <button onclick="checkMCQStar(this, true, 't2')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">❌ 搭配不當</button>
-                            <button onclick="checkMCQStar(this, false, 't2')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">⭕ 健康句子</button>
+
+                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <p class="font-bold mb-2 text-sm sm:text-base flex items-start">
+                            <button onclick="speakText('Q2. 同學原諒了阿明不小心弄壞文具的過錯。')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button> Q2. 同學原諒了阿明不小心弄壞文具的過錯。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('A. 得饒人處且饒人')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, true, 's2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">A. 得饒人處且饒人</button>
+                            </div>
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('B. 工欲善其事，必先利其器')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, false, 's2')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">B. 工欲善其事...</button>
+                            </div>
                         </div>
-                        <p id="feedback-t2" class="hidden mt-1 text-xs font-bold"></p>
+                        <p id="feedback-s2" class="mt-2 font-bold hidden text-sm"></p>
                     </div>
-                    <div class="bg-white p-3 rounded-lg shadow-sm border-l-4 border-green-400">
-                        <p class="font-bold text-sm mb-2 flex items-start"><button onclick="speakText('我每天早上都準時回到學校上課。這句有什麼問題？')" class="tts-btn-icon text-xs"><i class="fas fa-volume-up"></i></button>3. 「我每天早上都準時回到學校上課。」</p>
-                        <div class="flex gap-2">
-                            <button onclick="checkMCQStar(this, false, 't3')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">❌ 成分殘缺</button>
-                            <button onclick="checkMCQStar(this, true, 't3')" class="mcq-btn flex-1 bg-gray-50 border border-gray-300 py-1 rounded font-bold text-sm">⭕ 健康句子</button>
+
+                    <div class="bg-white p-4 rounded-xl shadow-sm">
+                        <p class="font-bold mb-2 text-sm sm:text-base flex items-start">
+                            <button onclick="speakText('Q3. 玲玲應徵落選心情低落，但一個月後那家公司傳出裁員。')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button> Q3. 玲玲應徵落選心情低落，但一個月後那家公司傳出裁員。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('A. 塞翁失馬，焉知非福')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, true, 's3')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">A. 塞翁失馬，焉知非福</button>
+                            </div>
+                            <div class="flex items-stretch gap-2">
+                                <button onclick="speakText('B. 大人不記小人過')" class="tts-option-btn"><i class="fas fa-volume-up"></i></button>
+                                <button onclick="checkMCQStar(this, false, 's3')" class="mcq-btn flex-1 bg-gray-50 border-2 border-gray-300 p-2 rounded-lg font-bold text-sm sm:text-base text-left">B. 大人不記小人過</button>
+                            </div>
                         </div>
-                        <p id="feedback-t3" class="hidden mt-1 text-xs font-bold"></p>
+                        <p id="feedback-s3" class="mt-2 font-bold hidden text-sm"></p>
                     </div>
                 </div>
             </div>
@@ -541,7 +564,7 @@
                             <div class="bg-red-500 text-white text-sm font-bold px-3 py-1 rounded w-full text-center shadow-sm z-10">1. 引論 (點題)</div>
                             <div class="mt-2 bg-white p-2 rounded border border-red-200 text-center w-full text-xs sm:text-sm font-bold text-gray-700 shadow-sm">
                                 <span class="text-red-700 font-black">學問唯勤而已</span><br>
-                                <span class="text-gray-500 font-normal">引用: 韓愈/俗語</span>
+                                <span class="text-gray-500 font-normal">引用: 韓愈</span>
                             </div>
                         </div>
 
@@ -551,11 +574,11 @@
                             <div class="bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded w-full text-center shadow-sm z-10">2. 本論 (展開)</div>
                             <div class="mt-2 grid grid-cols-1 gap-2 w-full">
                                 <div class="bg-white p-2 rounded border border-blue-200 text-center shadow-sm">
-                                    <p class="font-bold text-blue-800 text-xs mb-1">🏅勤出成果 (事實)</p>
+                                    <p class="font-bold text-blue-800 text-xs mb-1">🏅勤出成果</p>
                                     <p class="text-[10px] text-gray-600">馬克思、司馬遷</p>
                                 </div>
                                 <div class="bg-white p-2 rounded border border-blue-200 text-center shadow-sm">
-                                    <p class="font-bold text-blue-800 text-xs mb-1">💡勤出智慧 (事實)</p>
+                                    <p class="font-bold text-blue-800 text-xs mb-1">💡勤出智慧</p>
                                     <p class="text-[10px] text-gray-600">德摩斯梯尼(口吃)</p>
                                 </div>
                             </div>
@@ -567,8 +590,7 @@
                             <div class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded w-full text-center shadow-sm z-10">3. 結論 (總結)</div>
                             <div class="mt-2 bg-white p-2 rounded border border-green-200 text-center w-full text-xs sm:text-sm font-bold text-gray-700 shadow-sm">
                                 知識多寡關鍵在勤<br>
-                                <span class="text-green-600 font-normal">引用: 高爾基</span><br>
-                                <span class="text-red-500 font-normal">(對比論證)</span>
+                                <span class="text-green-600 font-normal">引用: 高爾基</span>
                             </div>
                         </div>
                     </div>
@@ -589,23 +611,24 @@
         <!-- L9: 終極產出 (1星) -->
         <section id="level-9" class="bg-white rounded-3xl p-6 shadow-sm border-t-8 border-red-500 scroll-mt-24 mb-20">
             <h2 class="text-2xl sm:text-3xl font-bold mb-4 flex items-center text-red-600">
-                <button onclick="speakText('第九關：終極產出。請用語音或文字分開回答三條問題，然後提交功課！')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
+                <button onclick="speakText('第九關：終極產出。請用語音或文字回答問題。')" class="tts-btn-icon"><i class="fas fa-volume-up"></i></button>
                 <i class="fas fa-upload mr-2"></i> L9. 終極產出
             </h2>
             
             <div class="bg-red-50 p-5 rounded-2xl border-2 border-red-200">
                 
                 <p class="font-bold text-red-800 mb-3 flex items-start">
-                    <button onclick="speakText('請填寫姓名、班別與學號。')" class="tts-btn-icon text-sm"><i class="fas fa-volume-up"></i></button>📝 填寫個人資料
+                    <button onclick="speakText('請填寫姓名、班別與學號。')" class="tts-btn-icon text-sm mt-1"><i class="fas fa-volume-up"></i></button>
+                    <span>📝 填寫資料</span>
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-                    <input type="text" id="student-name" placeholder="姓名" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold">
-                    <input type="text" id="student-class" placeholder="班別" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold">
-                    <input type="text" id="student-id" placeholder="學號" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold">
+                    <input type="text" id="student-name" placeholder="姓名" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold focus:outline-none focus:border-red-400">
+                    <input type="text" id="student-class" placeholder="班別" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold focus:outline-none focus:border-red-400">
+                    <input type="text" id="student-id" placeholder="學號" class="w-full p-2 border-2 border-red-200 rounded-lg font-bold focus:outline-none focus:border-red-400">
                 </div>
 
                 <p class="font-bold text-red-800 mb-3 flex items-start">
-                    <button onclick="speakText('綜合思考題。請分開三題作答。你可以點擊提示按鈕，或者點擊旁邊的麥克風用語音作答。')" class="tts-btn-icon text-sm mt-1"><i class="fas fa-volume-up"></i></button>
+                    <button onclick="speakText('綜合思考題。請分開三題作答。')" class="tts-btn-icon text-sm mt-1"><i class="fas fa-volume-up"></i></button>
                     <span>🤔 綜合思考題：請分開作答</span>
                 </p>
                 
@@ -613,8 +636,8 @@
                     <!-- 題 1 -->
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-red-100">
                         <p class="font-bold text-sm text-red-900 mb-2 flex items-start">
-                            <button onclick="speakText('第一題：作者認為任何成就的取得，都是與什麼分不開的？')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button>
-                            1. 作者在第3段認為「任何一項成就的取得，都是與甚麼分不開的」？
+                            <button onclick="speakText('第一題：根據課文，作者認為任何成就的取得，都是與什麼分不開的？')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button>
+                            1. 根據課文，作者認為「任何一項成就的取得，都是與甚麼分不開的」？
                         </p>
                         <div class="flex flex-wrap gap-2 mb-2">
                             <button onclick="addWordTo('任何成就的取得，都是與勤奮分不開的。', 'q1-area')" class="bg-red-50 border border-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">+ 提示 🎯</button>
@@ -631,11 +654,12 @@
                     <!-- 題 2 -->
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-red-100">
                         <p class="font-bold text-sm text-red-900 mb-2 flex items-start">
-                            <button onclick="speakText('第二題：根據課文，作者對比了勤奮者和懶惰者有甚麼不同的結果？')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button>
-                            2. 根據課文，作者對比了「勤奮者」和「懶惰者」有甚麼不同的結果？
+                            <button onclick="speakText('第二題：在日常生活中，你覺得自己在甚麼地方最需要加入勤的態度？為什麼？')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button>
+                            2. 在日常生活中，你覺得自己在甚麼地方最需要加入「勤」的態度？為什麼？
                         </p>
                         <div class="flex flex-wrap gap-2 mb-2">
-                            <button onclick="addWordTo('勤奮者能取得事業成就；懶惰者永遠沒有建樹。', 'q2-area')" class="bg-red-50 border border-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">+ 結果 ⚖</button>
+                            <button onclick="addWordTo('在「溫習功課」上最需要勤奮。', 'q2-area')" class="bg-red-50 border border-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">+ 學業 📚</button>
+                            <button onclick="addWordTo('在「發展興趣/運動」上最需要勤奮。', 'q2-area')" class="bg-red-50 border border-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">+ 興趣 🏀</button>
                         </div>
                         <div class="flex gap-2">
                             <textarea id="q2-area" class="w-full h-16 p-2 border-2 border-red-200 rounded-lg focus:outline-none focus:border-red-400 text-sm shadow-inner" placeholder="請在此作答第二題..."></textarea>
@@ -650,7 +674,7 @@
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-red-100">
                         <p class="font-bold text-sm text-red-900 mb-2 flex items-start">
                             <button onclick="speakText('第三題：除了勤奮，你認為要取得成功還需要甚麼條件呢？')" class="tts-btn-icon text-xs mt-1"><i class="fas fa-volume-up"></i></button>
-                            3. 在實際生活中，除了勤奮外，你認為要取得成就，還需要哪些條件？試加以說明。
+                            3. 承上題，除了勤奮外，你認為要取得成就，還需要哪些條件？試加以說明。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-2">
                             <button onclick="addWordTo('還需要有「明確的目標」。', 'q3-area')" class="bg-red-50 border border-red-200 text-red-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm">+ 目標 🎯</button>
@@ -679,7 +703,7 @@
     </main>
 
     <!-- 過關徽章 Modal -->
-    <div id="badge-modal" class="fixed inset-0 bg-black bg-opacity-70 z-[100] hidden flex items-center justify-center px-4">
+    <div id="badge-modal" class="fixed inset-0 bg-black bg-opacity-70 z-[100] hidden flex items-center justify-center px-4 z-[9999]">
         <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center transform scale-110 shadow-2xl border-4 border-yellow-400">
             <div class="text-6xl mb-2 animate-bounce">🎓🏆</div>
             <h2 class="text-2xl font-black text-yellow-600 mb-2">任務達成！滿天星！</h2>
@@ -691,8 +715,7 @@
     <!-- JavaScript 邏輯 -->
     <script>
         // --- 設定 Google Apps Script 網址 ---
-        // ⚠️ 請在這裡填入您的 Google Web App URL ⚠️
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzh6VN8KEe6pAsSp63SB2bB91Vxoiw55nqjaj1A9Dm2Udv_uYB6bnYLjNdFHthIt2eMLg/exec"; 
+        const WEB_APP_URL = "https://script.google.com/a/macros/jcmkec.edu.hk/s/AKfycbzh6VN8KEe6pAsSp63SB2bB91Vxoiw55nqjaj1A9Dm2Udv_uYB6bnYLjNdFHthIt2eMLg/exec"; 
 
         // --- 1. 星星系統 (20星) ---
         let currentStars = 0;
@@ -724,7 +747,6 @@
         function speakText(text) {
             if(!window.speechSynthesis) return;
             window.speechSynthesis.cancel(); 
-            // 過濾表情符號和編號，避免語音朗讀奇怪的代碼
             const cleanText = text.replace(/([A-Z]\.|[1-9]\.|Q[1-4]\.)/g, '').replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g, ''); 
             const utterance = new SpeechSynthesisUtterance(cleanText);
             utterance.lang = 'zh-HK'; 
@@ -759,7 +781,6 @@
 
         // --- 3. 遊戲邏輯 ---
         
-        // 選擇題
         function checkMCQStar(btnElement, isCorrect, qId) {
             if(btnElement.getAttribute('data-ans') === 'true') return;
             const allBtns = btnElement.parentElement.parentElement.querySelectorAll('.mcq-btn');
@@ -783,7 +804,6 @@
             }
         }
 
-        // 點擊填空
         let selectedWordBtn = null; let selectedWordId = null;
         function selectWord(btn, wId) {
             if(btn.disabled) return;
@@ -808,8 +828,7 @@
             }
         }
 
-        // 連連看配對
-        let selLeft = null; let selRight = null;
+        let provLeft = null; let provRight = null;
         function selectProverbStar(btn, pairId, side) {
             if(btn.getAttribute('data-matched') === 'true') return;
             const groupClass = side === 'left' ? '.match-left' : '.match-right';
@@ -817,11 +836,11 @@
             btn.classList.add('ring-4', 'ring-green-500');
             speakText(btn.innerText.replace(/[A-Z0-9]\./, '').replace(/[🐯🐴🐜]/, ''));
             
-            if(side === 'left') { selLeft = {btn, pairId}; } else { selRight = {btn, pairId}; }
+            if(side === 'left') { provLeft = {btn, pairId}; } else { provRight = {btn, pairId}; }
 
-            if(selLeft && selRight) {
-                if(selLeft.pairId === selectedRight.pairId) {
-                    [selLeft.btn, selRight.btn].forEach(b => {
+            if(provLeft && provRight) {
+                if(provLeft.pairId === provRight.pairId) {
+                    [provLeft.btn, provRight.btn].forEach(b => {
                         b.setAttribute('data-matched', 'true'); b.classList.remove('ring-4', 'ring-green-500');
                         b.classList.replace('bg-blue-50', 'bg-green-100'); b.classList.replace('bg-yellow-50', 'bg-green-100');
                         b.classList.replace('text-blue-800', 'text-green-800'); b.classList.replace('text-yellow-800', 'text-green-800');
@@ -829,17 +848,17 @@
                     });
                     document.getElementById('match-feedback').innerText = "✅ 配對成功！⭐"; addStar(); speakText("配對成功");
                 } else {
-                    [selLeft.btn, selRight.btn].forEach(b => {
+                    [provLeft.btn, provRight.btn].forEach(b => {
                         b.classList.remove('ring-4', 'ring-green-500'); b.classList.add('shake', 'bg-red-200');
                         setTimeout(() => b.classList.remove('shake', 'bg-red-200'), 500);
                     });
                     document.getElementById('match-feedback').innerText = "❌ 不對喔！"; speakText("不對喔");
                 }
-                selLeft = null; selRight = null;
+                provLeft = null; provRight = null;
             }
         }
 
-        // 詞語寶庫
+        // L3: 詞語寶庫生成
         const vocabData = [
             {w:"精深造詣", e:"Deep knowledge"}, {w:"攀登", e:"Climb"}, {w:"珍惜", e:"Cherish"}, {w:"實踐", e:"Practice"},
             {w:"堅持不懈", e:"Persevere"}, {w:"建樹", e:"Achievement"}, {w:"遲鈍", e:"Dull"}, {w:"體會", e:"Understand"}
@@ -857,7 +876,7 @@
             });
         }
 
-        // 動畫劇場
+        // L4: 動畫劇場控制
         let currentFrame = 1; const totalFrames = 4;
         function updateFrames() {
             for(let i=1; i<=totalFrames; i++) {
@@ -885,7 +904,7 @@
         function nextFrame() { if(currentFrame < totalFrames) { currentFrame++; updateFrames(); } }
         function prevFrame() { if(currentFrame > 1) { currentFrame--; updateFrames(); } }
 
-        // 下載腦圖
+        // L8: 下載腦圖
         function downloadMindMap() {
             const btn = document.getElementById('download-btn');
             if(btn.getAttribute('data-claimed') === 'true') return;
@@ -908,7 +927,7 @@
             });
         }
 
-        // --- 4. 語音轉文字與最終提交 ---
+        // L9: 語音轉文字與提交
         function addWordTo(word, targetId) {
             const area = document.getElementById(targetId);
             if(area) {
@@ -1035,8 +1054,8 @@
 
         function showSubmitSuccess(btn) {
             btn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> 功課已上傳';
-            btn.classList.replace('bg-indigo-600', 'bg-green-500');
-            btn.classList.replace('hover:bg-indigo-700', 'hover:bg-green-600');
+            btn.classList.replace('bg-red-600', 'bg-green-500');
+            btn.classList.replace('hover:bg-red-700', 'hover:bg-green-600');
             const feedback = document.getElementById('submit-feedback');
             if (feedback) {
                 feedback.innerText = "🎉 功課已成功提交！獲得最後一顆星！⭐";
